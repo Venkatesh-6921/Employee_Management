@@ -1,0 +1,181 @@
+{% load static %}
+<html>
+<head>
+    <title>SoftTech Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %} "></link>
+    <style>
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.5rem;
+        }
+        
+        
+        label {
+            display: block;
+            font-weight: 600;
+            color: #444;
+            text-align:left;
+        }
+        
+        input, select, textarea {
+            width: 300%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+   
+        
+        .row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+    </style>
+    
+
+</head>
+
+<body>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="#">SoftTech Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SoftTech</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'home' %}" id="hii">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'details' %}" id="hii">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'Register' %}" id="hii">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'contact' %}" id="hii">Contact</a>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+   <!--end of navbar-->
+    <div class="container">
+        <h2>Employee Registration</h2>
+        
+        <div class="row">
+            <div class="col">
+                <div class="input-group">
+                <form method="post">
+                 {% csrf_token %}
+                 <center>
+                <label> Employee Name :</label>
+                 <br>
+                <input type="text" name="a"/>
+                <br>
+                <br>
+                <label> Age : </label>
+                <br>
+                <input type="number" name="b"/>
+                <br>
+                <br>
+               <label> Job Role : </label>
+                <br>
+               <input type="text" name="c"/>
+                <br>
+                <br>
+               <label> Salary :</label>
+                <br>
+              <input type="number" name="d"/>
+               <br>
+               <br>
+             <label> Date Of Joining :</label>
+               <br>
+            <input type="date" name="e"/>
+             <br>
+             <br>
+            <label> Department</label>
+            <br>
+            <input type="text" name="f"/>
+             <br>
+              <br>
+            <button type="Submit">Submit Form</button>
+            </form>
+        </div>
+    </div>
+            
+   
+    
+   <!-- Footer -->
+   <footer class="text-center">
+        <div class="container2">
+            <p>© 2023 SoftTech Solutions. All rights reserved.</p>
+            <p>Contact us: info@softtechsolutions.com | (123) 456-7890</p>
+        </div>
+   </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+
+{% load static %}
+<html>
+<head>
+    <title>SoftTech Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %} "></link>
+</head>
+
+<body>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="#">SoftTech Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SoftTech</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'home' %}" id="hii">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'details' %}" id="hii">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'Register' %}" id="hii">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'contact' %}" id="hii">Contact</a>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+   <!--end of navbar-->
+
+   <!--hero section-->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Innovative Software Solutions</h1>
+            <p class="lead">We build cutting-edge applications that drive business growth</p>
+        </div>
+    </section>
+   
+   <!-- Features Section -->
+   <section class="features-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">💻</div>
+                            <h3 class="card-title">Web Development</h3>
+                            <p class="card-text">Custom web applications built with modern technologies to meet your business needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">📱</div>
+                            <h3 class="card-title">Mobile Apps</h3>
+                            <p class="card-text">iOS and Android applications designed for optimal performance and user experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">☁️</div>
+                            <h3 class="card-title">Cloud Solutions</h3>
+                            <p class="card-text">Scalable cloud infrastructure and services to support your growing business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
+
+
+   <!--End of Hero Section-->
+   
+   <!-- Footer -->
+   <footer class="text-center">
+        <div class="container">
+            <p>© 2023 SoftTech Solutions. All rights reserved.</p>
+            <p>Contact us: info@softtechsolutions.com | (123) 456-7890</p>
+        </div>
+   </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+
+ 
+
+</body>
+
+</html>

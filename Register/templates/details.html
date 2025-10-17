@@ -1,0 +1,161 @@
+{% load static %}
+<html>
+<head>
+    <title>SoftTech Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %} ">
+    
+    <style>
+        .employee-table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .employee-table th, .employee-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .employee-table th {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .employee-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+        
+        .btn-edit {
+            background-color: #ffc107;
+            color: black;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-edit:hover {
+            background-color: #e0a800;
+            color: black;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+            color: white;
+        }
+        .empty-message {
+            text-align: center;
+            font-style: italic;
+            color: #6c757d;
+        }
+        .add-employee {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="#">SoftTech Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SoftTech Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'home' %}" id="hii">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'details' %}" >Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'Register' %}" >Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+   <!--end of navbar-->
+
+   <!--Employee details-->
+   <h2>Employee Details</h2>
+   
+   <div class="add-employee">
+        <a href="{% url 'Register' %}" class="btn btn-primary">Add New Employee</a>
+   </div>
+   
+   <table class="employee-table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Job Role</th>
+            <th>Salary</th>
+            <th>Date Of Joining</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for employee in service %}
+        <tr>
+            <td>{{ employee.Name }}</td>
+            <td>{{ employee.Age }}</td>
+            <td>{{ employee.Job_role }}</td>
+            <td>${{ employee.Salary }}</td>
+            <td>{{ employee.Date_Of_Joining }}</td>
+            <td>{{ employee.Department }}</td>
+            <td>
+                <a href="{% url 'edit_employee' employee.id %}" class="btn-edit">Edit</a>
+                <a href="{% url 'confirm_delete' employee.id %}" class="btn-delete">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7" class="empty-message">No employee records found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+   <!--End of Employee Details-->
+
+   <!-- Footer -->
+   <footer class="text-center">
+        <div class="container">
+            <p>© 2023 SoftTech Solutions. All rights reserved.</p>
+            <p>Contact us: info@softtechsolutions.com | (123) 456-7890</p>
+        </div>
+   </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>

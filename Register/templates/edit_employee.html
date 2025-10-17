@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee - SoftTech Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 70px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'details' %}">SoftTech Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'details' %}">Employee List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Register' %}">Add Employee</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Edit Employee</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" 
+                                   value="{{ employee.Name }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" 
+                                   value="{{ employee.Age }}" min="18" max="65" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="job_role" class="form-label">Job Role</label>
+                            <input type="text" class="form-control" id="job_role" name="job_role" 
+                                   value="{{ employee.Job_role }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="salary" class="form-label">Salary ($)</label>
+                            <input type="number" class="form-control" id="salary" name="salary" 
+                                   value="{{ employee.Salary }}" min="0" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="date_of_joining" class="form-label">Date of Joining</label>
+                            <input type="date" class="form-control" id="date_of_joining" name="date_of_joining" 
+                                   value="{{ employee.Date_Of_Joining|date:'Y-m-d' }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="department" class="form-label">Department</label>
+                            <select class="form-select" id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="IT" {% if employee.Department == "IT" %}selected{% endif %}>IT</option>
+                                <option value="HR" {% if employee.Department == "HR" %}selected{% endif %}>HR</option>
+                                <option value="Finance" {% if employee.Department == "Finance" %}selected{% endif %}>Finance</option>
+                                <option value="Marketing" {% if employee.Department == "Marketing" %}selected{% endif %}>Marketing</option>
+                                <option value="Operations" {% if employee.Department == "Operations" %}selected{% endif %}>Operations</option>
+                                <option value="Sales" {% if employee.Department == "Sales" %}selected{% endif %}>Sales</option>
+                                <option value="Research" {% if employee.Department == "Research" %}selected{% endif %}>Research & Development</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{% url 'details' %}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Update Employee</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Current Information Card -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">Current Information</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Name:</strong> {{ employee.Name }}</p>
+                        <p><strong>Age:</strong> {{ employee.Age }}</p>
+                        <p><strong>Job Role:</strong> {{ employee.Job_role }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Salary:</strong> ${{ employee.Salary }}</p>
+                        <p><strong>Date of Joining:</strong> {{ employee.Date_Of_Joining }}</p>
+                        <p><strong>Department:</strong> {{ employee.Department }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
