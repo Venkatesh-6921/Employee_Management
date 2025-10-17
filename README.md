@@ -87,6 +87,20 @@ python manage.py runserver
 Now open your browser and visit:  
 👉 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
+Note:
+If You Want To Run this project locally you should do this First:
+Change the Staticfiles directory of settings.py
+# Optional: extra static dirs (can be empty if using only app-level static)
+STATICFILES_DIRS = [
+    # os.path.join(BASE_DIR, 'static'),  # only if you have project-level static
+]
+                to
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # only if you have project-level static
+]
+
+
 ---
 
 ## 🗃️ Tech Stack
