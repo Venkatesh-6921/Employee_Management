@@ -204,8 +204,7 @@ Your project is live at:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
  — feel free to use and modify it for learning or development.
 
- # SPDX-License-Identifier: MIT
-# Copyright (c) 2025 Maragada Venkateswara Reddy
+
 
 
 ---
