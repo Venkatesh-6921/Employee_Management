@@ -50,7 +50,7 @@ Employee_Management/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/Employee_Management.git
+git clone https://github.com/Venkatesh-6921/Employee_Management.git
 cd Employee_Management
 ```
 
@@ -193,15 +193,20 @@ Your project is live at:
 
 ## 🧑‍💻 Author
 
-**Ravi Maragada**  
-🎓 Final Year Project — Django Web Development  
-📧 *[your.email@example.com]*  
+** Maragada Venkateswara Reddy**  
+🎓 Major Project — Django Web Development  
+📧 *[maragadavekatesh@gmail.com]*  
 
 ---
 
 ## 🪶 License
 
-This project is licensed under the **MIT License** — feel free to use and modify it for learning or development.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+ — feel free to use and modify it for learning or development.
+
+ # SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Maragada Venkateswara Reddy
+
 
 ---
 
